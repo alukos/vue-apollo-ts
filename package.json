@@ -12,11 +12,15 @@
     "apollo:start": "vue-cli-service apollo:start"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
     "core-js": "^2.6.5",
+    "graphql": "^14.5.3",
     "graphql-type-json": "^0.2.1",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "shortid": "^2.2.8",
+    "subscriptions-transport-ws": "^0.9.16",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0-beta.11",
     "vue-cli-plugin-apollo": "^0.21.0"
