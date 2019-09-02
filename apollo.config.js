@@ -8,6 +8,8 @@ const env = loadEnv([
   path.resolve(__dirname, '.env.local'),
 ]);
 
+// with service in root we can't generate types
+// https://github.com/apollographql/apollo-tooling/issues/671#issuecomment-437675051
 module.exports = {
   client: {
     service: env.VUE_APP_APOLLO_ENGINE_SERVICE,

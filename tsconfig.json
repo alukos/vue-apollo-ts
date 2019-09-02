@@ -25,14 +25,15 @@
       "scripthost"
     ]
   },
+  "files": [
+    "node_modules/vue-cli-plugin-apollo/types.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "node_modules/vue/types/*.d.ts",
-    "node_modules/vue-apollo/types/*.d.ts"
   ],
   "exclude": [
     "node_modules"

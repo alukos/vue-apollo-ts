@@ -12,6 +12,7 @@
     "apollo:start": "vue-cli-service apollo:start"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.3",
     "apollo-client": "^2.6.4",
     "core-js": "^2.6.5",

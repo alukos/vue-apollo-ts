@@ -99,30 +99,34 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
+
 import FILES from '../graphql/Files.gql';
+import { files_files as IFile } from '@/graphql/types/files';
 import UPLOAD_FILE from '../graphql/UploadFile.gql';
 
-export default {
+export default Vue.extend({
   data() {
     return {
       name: 'Anne',
       newMessage: '',
+      files: [] as IFile[],
     };
   },
 
   apollo: {
-    files: FILES,
+    files: () => FILES,
   },
 
   computed: {
-    formValid() {
+    formValid(): string {
       return this.newMessage;
     },
   },
 
   methods: {
-    onMessageAdded(previousResult, { subscriptionData }) {
+    onMessageAdded(previousResult: any, { subscriptionData }: { subscriptionData: any }) {
       return {
         messages: [
           ...previousResult.messages,
@@ -131,7 +135,7 @@ export default {
       };
     },
 
-    async onUploadImage({ target }) {
+    async onUploadImage({ target }: {target: any}) {
       if (!target.validity.valid) return;
       await this.$apollo.mutate({
         mutation: UPLOAD_FILE,
@@ -139,14 +143,14 @@ export default {
           file: target.files[0],
         },
         update: (store, { data: { singleUpload } }) => {
-          const data = store.readQuery({ query: FILES });
+          const data: any = store.readQuery({ query: FILES });
           data.files.push(singleUpload);
           store.writeQuery({ query: FILES, data });
         },
       });
     },
   },
-};
+});
 </script>
 
 <style scoped>

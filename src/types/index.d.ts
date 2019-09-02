@@ -1,5 +1,3 @@
-declare module 'vue-cli-plugin-apollo/graphql-client';
-
 declare module "*.gql" {
   import { DocumentNode  } from 'graphql'
 
@@ -12,4 +10,3 @@ declare module "*.graphql" {
 
   const content: DocumentNode
   export default content
-}
