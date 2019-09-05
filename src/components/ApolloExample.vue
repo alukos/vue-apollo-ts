@@ -14,9 +14,9 @@
     <!-- Apollo watched Graphql query -->
     <ApolloQuery
       :query="require('../graphql/HelloWorld.gql')"
-      :variables="{ name }"
+      :variabless="{ name }"
+      #default="{ result: { loading, error, data } }"
     >
-      <template slot-scope="{ result: { loading, error, data } }">
         <!-- Loading -->
         <div v-if="loading" class="loading apollo">Loading...</div>
 
@@ -28,7 +28,6 @@
 
         <!-- No result -->
         <div v-else class="no-result apollo">No result :(</div>
-      </template>
     </ApolloQuery>
 
     <!-- Tchat example -->
@@ -83,6 +82,7 @@
         class="image-item"
       >
         <img :src="`${$filesRoot}/${file.path}`" class="image"/>
+        {{file.id}}
       </div>
     </div>
 
@@ -103,7 +103,8 @@
 import Vue from 'vue';
 
 import FILES from '../graphql/Files.gql';
-import { files_files as IFile } from '@/graphql/types/files';
+import { files_files as IFile, files as IFiles } from '@/graphql/types/files';
+
 import UPLOAD_FILE from '../graphql/UploadFile.gql';
 
 export default Vue.extend({
